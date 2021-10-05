@@ -28,7 +28,19 @@ class Admin extends CI_Controller {
 	
 	public function getcustomers()
 	{
-		echo json_encode($this->db->select("*")->from("rezervasyon")->get()->result());
+		echo json_encode($this->db->select("*")->from("rezervasyon")->join('masalar', 'masalar.id = rezervasyon.masaid')->get()->result());
+	}
+	public function addrezervasyon()
+	{
+		$adsoy=$this->input->post("adsoyad");
+		$tel=$this->input->post("tel");
+		$masaid=$this->input->post("yetki");
+		$tarih=explode(" ",$this->input->post("tarihsaat"))[0];
+		$saat=explode(" ",$this->input->post("tarihsaat"))[1];
+		$this->db->insert('rezervasyon',['adsoy'=>$adsoy,'tel'=>$tel,'masaid'=>$masaid,'tarih'=>$tarih,'saat'=>$saat,'kul_id'=>$this->session->userdata('kulid')
+	]);
+		echo "oldu";
+		
 	}
 
 }
