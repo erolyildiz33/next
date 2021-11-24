@@ -1,0 +1,28 @@
+[06-Oct-2021 09:36:43 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/bamertek/public_html/next/asset/admin/ayar.php on line 6
+[06-Oct-2021 09:36:43 UTC] PHP Warning:  mysqli_errno() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 7
+[06-Oct-2021 09:36:43 UTC] PHP Warning:  mysqli_set_charset() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 13
+[06-Oct-2021 09:36:43 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 32
+[06-Oct-2021 09:36:43 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 33
+[06-Oct-2021 09:36:43 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/aja.php on line 12
+[06-Oct-2021 09:36:46 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/bamertek/public_html/next/asset/admin/ayar.php on line 6
+[06-Oct-2021 09:36:46 UTC] PHP Warning:  mysqli_errno() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 7
+[06-Oct-2021 09:36:46 UTC] PHP Warning:  mysqli_set_charset() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 13
+[06-Oct-2021 09:36:46 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 32
+[06-Oct-2021 09:36:46 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 33
+[06-Oct-2021 09:36:46 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/aja.php on line 12
+[06-Oct-2021 10:21:30 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/bamertek/public_html/next/asset/admin/ayar.php on line 6
+[06-Oct-2021 10:21:30 UTC] PHP Warning:  mysqli_errno() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 7
+[06-Oct-2021 10:21:30 UTC] PHP Warning:  mysqli_set_charset() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 13
+[06-Oct-2021 10:21:30 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 32
+[06-Oct-2021 10:21:30 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 33
+[06-Oct-2021 10:21:30 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/update.php on line 11
+[06-Oct-2021 10:21:30 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/bamertek/public_html/next/asset/admin/update.php on line 12
+[06-Oct-2021 10:21:30 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/update.php on line 24
+[06-Oct-2021 10:21:50 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/bamertek/public_html/next/asset/admin/ayar.php on line 6
+[06-Oct-2021 10:21:50 UTC] PHP Warning:  mysqli_errno() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 7
+[06-Oct-2021 10:21:50 UTC] PHP Warning:  mysqli_set_charset() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 13
+[06-Oct-2021 10:21:50 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 32
+[06-Oct-2021 10:21:50 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/ayar.php on line 33
+[06-Oct-2021 10:21:50 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/update.php on line 11
+[06-Oct-2021 10:21:50 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/bamertek/public_html/next/asset/admin/update.php on line 12
+[06-Oct-2021 10:21:50 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in /home/bamertek/public_html/next/asset/admin/update.php on line 24

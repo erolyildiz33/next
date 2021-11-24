@@ -6,14 +6,14 @@ class Auth extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('isLogIn'))
-
-			redirect('admin');
+	
 
 	}
 
 	public function index()
 	{
+	    	if ($this->session->isLogIn)
+		redirect('admin');
 		$this->load->view('login');
 	}
 	public function login()
@@ -26,18 +26,18 @@ class Auth extends CI_Controller {
 		$result = $this->db->select("*")->from("kullanicilar")->where("username='".md5($user)."' and Password='".md5($pass)."'")->get()->result();
 
 		if (!empty($result)) {
-			$this->session->set_userdata(["kulid"=>$result[0]->id,'isAdmin'=>1,'isLogIn'=>1]);
-			
-			echo "oldu";
+		    $this->session->set_userdata(['isLogIn' 	  => true,
+					'kulid' 	 => $result[0]->id,'role'=>$result[0]->yetki]);
+					echo "oldu";
 		} else {
-			echo "olmadi";
+			echo "olmadı";
 		}
 	}
 
 	public function logout()
 	{ 
-		$this->session->sess_destroy();
-		//redirect(base_url());
+        $this->session->sess_destroy();
+		redirect(base_url());
 	}
 
 }

@@ -1,0 +1,83 @@
+server {
+        server_name mersinroof14.com www.mersinroof14.com;
+
+        root /var/www/mersinroof14;
+        index index.html index.php;
+        # set expiration of assets to MAX for caching
+        location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
+                expires 60;
+                log_not_found off;
+        }
+
+
+
+    location /socket.io/ {
+ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $host;
+
+      proxy_pass http://localhost:3300;
+
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection "upgrade";     
+}
+           
+location / {
+if ($host = 'mersinroof14.com' ) {
+rewrite ^ https://www.mersinroof14.com$uri permanent;
+}
+		try_files $uri $uri/ /index.php;
+       	 }
+ 
+
+
+location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+        fastcgi_read_timeout 300;
+   }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+
+}
+server {
+listen 80;
+        server_name database.mersinroof14.com;
+
+        root /var/www/html/phpmyadmin;
+        index index.html index.php;
+client_max_body_size 100M;
+
+     location / {
+            try_files $uri $uri/ /index.php?q=$uri&$args;
+        }
+
+    location ~ \.php$ {
+         include snippets/fastcgi-php.conf;
+
+
+         fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+         include fastcgi_params;
+    }
+
+     location ^~ /data {
+         deny all;
+      }
+}
+
+server {
+    if ($host = mersinroof14.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+listen 80;
+        server_name mersinroof14.com www.mersinroof14.com;
+    return 404; # managed by Certbot
+
+
+}

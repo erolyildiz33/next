@@ -1,95 +1,152 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
 	<meta charset="utf-8">
-	<title>Yönetim Paneli</title>
-	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<META http-equiv="Cache-Control" content="no-cache">
-	<link rel="stylesheet" href="<?=base_url();?>/asset/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?=base_url();?>asset/css/login.css">
-	<script src= "<?=base_url();?>asset/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-	<script src= "<?=base_url();?>asset/js/bootstrap-notify.js" type="text/javascript"></script>
-</META></META></head>
-<body>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AdminLTE 3 | Log in (v2)</title>
+
+	<!-- Google Font: Source Sans Pro -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="<?=base_url('assets')?>/plugins/fontawesome-free/css/all.min.css">
+	<!-- icheck bootstrap -->
+	<link rel="stylesheet" href="<?=base_url('assets')?>/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="<?=base_url('assets')?>/dist/css/adminlte.min.css">
+	<script src="<?=base_url('assets')?>/plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="<?=base_url('assets')?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="<?=base_url('assets')?>/dist/js/adminlte.min.js"></script>
+	<script src= "<?=base_url('assets');?>/dist/js/bootstrap-notify.js" type="text/javascript"></script>
+
+</head>
+<body class="hold-transition login-page">
+	<div class="login-box">
+		<!-- /.login-logo -->
+		<div class="card card-outline card-primary">
+			<div class="card-header text-center">
+				<a href="<?=base_url('assets')?>/index2.html" class="h1"><b>Admin</b>LTE</a>
+			</div>
+			<div class="card-body">
 
 
-	<div class="container">
-		<div class="card card-container">
-			<img id="profile-img" class="profile-img-card" src="asset/images/2.jpg" />
-			<p id="profile-name" class="profile-name-card"></p>
+				<form  id="form" class="form-signin" role="form" name="gonder" action="<?=base_url()?>admin" method="post">
+					<div class="input-group mb-3">
+						<input type="hidden" class="txt_csrfname" name="<?= $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
+						<input type="text" class="form-control" id="user" name="user" placeholder="Kullanıcı Adınız">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-envelope"></span>
+							</div>
+						</div>
+					</div>
+					<div class="input-group mb-3">
+						<input type="password" name="pass" id="pass" class="form-control" placeholder="Şifreniz">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-lock"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
 
-			<form  id="form" class="form-signin" role="form" name="gonder" action="/auth" method="post">
-				<span id="reauth-email" class="reauth-email"></span>
-				<input type="text" id="user" name="user" class="form-control" placeholder="Kullanıcı Adınız" required autofocus>
-				<input type="password" id="pass" name="pass" class="form-control" placeholder="Şifreniz" required>
-			<!--	<div id="remember" class="checkbox">
-					<label>
-						<input type="checkbox" id="hatirla" name="remember-me"> Beni  Hatırla
-					</label>
-				</div> !-->
-				<button class="btn btn-lg btn-primary btn-block btn-signin" type="button" id="gbuton">Gönder</button>
-			</form><!-- /form --> <noscript><h4>
-			Bu sitenin tüm fonksiyonlarının çalışması için JavaScript'i aktif etmeniz gerekmektedir.</h4><h5><br>
-				<a href="http://www.enable-javascript.com/tr/" target="_blank">
-					JavaScript'i nasıl etkinleştirebileceğinize yönelik talimatlara buradan ulaşabilirsiniz
-				</a>.</h5>
-			</noscript>
-		</div><!-- /card-container -->
-	</div><!-- /container -->
+						<!-- /.col -->
+						<div class="col-12">
+							<button type="button" class="btn btn-primary btn-block" id="gbuton">Giriş Yap</button>
+						</div>
+						<!-- /.col -->
+					</div>
+				</form>
 
 
-	<script>
-		$(document).ready(function(){
-			$('#pass').keypress(function(e){
-				if(e.keyCode==13)
-					$('#gbuton').click();
-			});
+    <!--
+
+      <p class="mb-1">
+        <a href="forgot-password.html">I forgot my password</a>
+      </p>
+      <p class="mb-0">
+        <a href="register.html" class="text-center">Register a new membership</a>
+
+    </p>!-->
+</div>
+<!-- /.card-body -->
+</div>
+<!-- /.card -->
+</div>
+<!-- /.login-box -->
+
+<script>
+	$(document).ready(function(){
+		$('#pass').keypress(function(e){
+			if(e.keyCode==13)
+				$('#gbuton').click();
 		});
-		$(document).ready(function(){
-			$('#user').keypress(function(e){
-				if(e.keyCode==13)
-					$('#pass').focus();
-			});
+	});
+	$(document).ready(function(){
+		$('#user').keypress(function(e){
+			if(e.keyCode==13)
+				$('#pass').focus();
 		});
+	});
 
-		$(document).ready(function(){$("#gbuton").click(function(){var degerler = $("form").serialize();
-			$.post("auth/login",degerler,function(cevap){
-				if (cevap=='oldu'/* && document.getElementById('hatirla').value==null*/){
-					oldu();setTimeout(function(){document.forms["form"].submit();},6000); }
-					else
-					{
-						olmadi();
-					}});});});
+	$(document).ready(function(){
+	    $("#gbuton").click(function(){
+	        var degerler = $("form").serialize();
 
+		
+		
 
-		function oldu(){
-			var notify = $.notify('<strong>Kontrol Ediliyor</strong> Lütfen Sayfayı Kapatmayınız', 
-			{
-				allow_dismiss: false,
-				showProgressbar: true,
-				placement: {
-					from: "top",
-					align: "center"
+		$.post("<?=base_url()?>auth/login",degerler,function(cevap){
+			if (cevap=='oldu'){
+				oldu();
+				setTimeout(function(){document.forms["form"].submit();},6000); 
+			    
+			}else{
+					olmadi();
 				}
-			});
-			setTimeout(function() {
-				notify.update({'type': 'success', 'message': '<strong>Başarılı</strong> Giriş Yapılıyor', 'progress': 30});
-			}, 3500);
-		};
-		function olmadi(){
-			var notify = $.notify('<strong>Kontrol Ediliyor</strong> Lütfen Sayfayı Kapatmayınız', 
-			{
-				allow_dismiss: false,
-				showProgressbar: true,
-				placement: {
-					from: "top",
-					align: "center"
-				}
-			});
-			setTimeout(function() {
-				notify.update({'type': 'danger', 'message': '<strong>Hatalı</strong> Giriş Bilgileri', 'progress': 30});}, 3500);
-		};
+		    
+		});
+	        
+	    });
+	    
+	});
 
-	</script>
+
+	function oldu(){
+		var notify = $.notify('<strong>Kontrol Ediliyor</strong> Lütfen Sayfayı Kapatmayınız', 
+		{
+			allow_dismiss: false,
+			showProgressbar: true,
+			placement: {
+				from: "top",
+				align: "center"
+			}
+		});
+		setTimeout(function() {
+			notify.update({'type': 'success', 'message': '<strong>Başarılı</strong> Giriş Yapılıyor', 'progress': 30});
+		}, 3500);
+	
+	
+	};
+	function olmadi(){
+		var notify = $.notify('<strong>Kontrol Ediliyor</strong> Lütfen Sayfayı Kapatmayınız', 
+		{
+			allow_dismiss: false,
+			showProgressbar: true,
+			placement: {
+				from: "top",
+				align: "center"
+			}
+			
+		});
+		setTimeout(function() {
+			notify.update({'type': 'danger', 'message': '<strong>Hatalı</strong> Giriş Bilgileri', 'progress': 30});}, 3500);
+		
+	};
+
+</script>
+<!-- jQuery -->
+
 </body>
 </html>
