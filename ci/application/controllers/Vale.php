@@ -72,10 +72,14 @@ public function register()
     $data =['plaka'=>strtoupper($this->input->post("plaka")),
     'masa_id'=> $this->input->post("masano"),
     'zaman'=>$this->input->post("zaman")
-    ];     
-    if($this->db->insert('vale',$data)){
-         echo "oldu";
-    }
+    ];   
+
+  
+   if($this->db->insert('vale',$data)>0) {
+   echo "oldu";
+   }
+         
+    
    
 
 }

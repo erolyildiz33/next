@@ -83,26 +83,28 @@
 
 	<script>
 		$(document).on('click','#sendData',function(){
-			var socket = io("https://www.mersinroof14.com/");
+			var socket = io("http://185.95.164.242:3300", { transports: ["websocket"],secure:true });
 			var plaka = $("#plaka").val();
 			var zaman = $("#zaman").val();
 			var masano = $("#masano").val();
 			
 			
+		
 			$.ajax({
 				url: '<?=base_url()?>vale/register',
-				type: 'POST',
-				dataType: 'json',
+				 type: 'POST',
 				data: { plaka: plaka, zaman: zaman,masano:masano },
 				success: function (gelenveri) {
+					
 					if(gelenveri=='oldu'){
-						socket.emit('add_car','ekle');
+						socket.emit('aracekle');
 					}
 					
 				},
 				error: function (hata) {					
 				}
 			});
+			
 		});
 
 
